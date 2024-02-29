@@ -27,3 +27,11 @@ CanvasRenderingContext2D.prototype.clear = function() {
   this.fillRect(0, 0, this.canvas.width, this.canvas.height)
   this.restore()
 }
+
+CanvasRenderingContext2D.prototype.fade = function (alpha) {
+  this.save()
+  this.setTransform(1, 0, 0, 1, 0, 0)
+  this.fillStyle="rgba(0, 0, 0, "+alpha+")";
+  this.fillRect(0, 0, this.canvas.width, this.canvas.height)
+  this.restore()
+}

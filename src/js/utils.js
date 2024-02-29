@@ -65,9 +65,47 @@ export default {
     return maxes
   },
 
+  avgbin(data, n, lengths) {
+    n = Math.floor(n)
+    let tmpdata = new Array(n).fill(0)
+    let bl = Math.floor(data.length / n)
+
+    if (lengths) {
+      n = lengths.length
+      for (var i = 0; i < n; i++) {
+        bl = lengths
+        if (bl[i][1] !== undefined) {
+          for (var c = 0; c < bl[i][1]; c++) {
+            for (var j = 0; j < bl[i][0]; j++)
+              tmpdata[i] += data[bl[i][0] * i + j]
+            tmpdata[i] = tmpdata[i] / bl[i][0]
+          }
+        } else {
+          for (var j = 0; j < bl[i]; j++) {
+            tmpdata[i] += data[bl[i] * i + j]
+          }
+          tmpdata[i] = tmpdata[i] / bl[i]
+        }
+      }
+    } else {
+      for (var i = 0; i < n; i++) {
+        for (var j = 0; j < bl; j++) {
+          tmpdata[i] += data[bl * i + j]
+        }
+        tmpdata[i] = tmpdata[i] / bl
+      }
+    }
+    return tmpdata
+  },
+  
   dist(x1, y1, x2, y2) {
     let dx = x2 - x1
     let dy = y2 - y1
     return Math.sqrt(dx * dx + dy * dy)
-  }
+  },
+
+  remap(value, low1, high1, low2, high2) {
+    return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1)
+  },
+
 }

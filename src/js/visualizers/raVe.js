@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import Visualizer from './Visualizer'
-import utils from './utils'
+import Visualizer from '../Visualizer'
+import utils from '../utils'
 
 let { abs, cos, floor, max, sin, PI } = Math
 let tau = 2 * PI

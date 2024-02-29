@@ -67,7 +67,15 @@ import AudioAnalyzer from '@/js/AudioAnalyzer'
 import Microphone from '@/js/Microphone'
 import Playlist from '@/js/Playlist'
 
-import raVe from '@/js/raVe'
+import raVe from '@/js/visualizers/raVe'
+import osci from '@/js/visualizers/Oscilloscope'
+import bar from '@/js/visualizers/Bar'
+import strings from '@/js/visualizers/Strings'
+import piano from '@/js/visualizers/Piano'
+import three from '@/js/visualizers/ThreeTest'
+import tess from '@/js/visualizers/Tesseract'
+import map from '@/js/visualizers/Map'
+// import rube from '@/js/visualizers/Rubens' //doesn't like "uniform" variable declaration
 
 export default {
   data: () => ({
@@ -220,7 +228,7 @@ export default {
     this.gpuHack = document.createElement('canvas')
     this.gpuHackCtx = this.gpuHack.getContext('webgl', { powerPreference: 'high-performance' })
 
-    this.visualizer = new raVe({
+    this.visualizer = new map({
       audio: this.source,
       analyzer: this.analyzer,
       container: this.$refs.container,

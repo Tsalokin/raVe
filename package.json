@@ -1,12 +1,13 @@
 {
-  "name": "raVe",
+  "name": "rave",
   "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve --https",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
+    "three": "^0.161.0",
+    "proc-noise": "^0.0.1",
     "vue": "^2.6.10",
     "vue-analytics": "^5.16.4",
     "vue-router": "^3.0.2",
@@ -14,9 +15,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.5",
-    "@vue/cli-plugin-eslint": "^3.5.1",
     "@vue/cli-service": "^3.5.3",
-    "@vue/eslint-config-prettier": "^4.0.1",
     "image-webpack-loader": "^4.6.0",
     "sass": "^1.43.4",
     "sass-loader": "^7.1.0",
@@ -26,25 +25,6 @@
     "semi": false,
     "singleQuote": true,
     "printWidth": 100
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier"
-    ],
-    "rules": {
-      "linebreak-style": [
-        "error",
-        "unix"
-      ]
-    },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
   },
   "postcss": {
     "plugins": {
